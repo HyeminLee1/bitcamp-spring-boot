@@ -7,17 +7,26 @@ class TvControll {
         Tv sTv = new Tv("Samsung");
         Tv hTv = new Tv("HP",2048);
 
-        System.out.println(hTv.current_channel);
-        hTv.current_channel=11;
-        System.out.println(hTv.current_channel);
-        System.out.println(hTv.resolution);
+        //System.out.println(hTv.current_channel);
+        //hTv.current_channel=11;
+        //System.out.println(hTv.current_channel);
+        System.out.println(hTv.getCurrent_channel());
+        hTv.setCurrent_channel(11);
+        System.out.println(hTv.getCurrent_channel());
+        //System.out.println(hTv.resolution);
+        //System.out.println(hTv.getChannel());   //값이 아닌 배열의 시작 주소 출력
+
+        int[] arr = hTv.getChannel();           //getChannel을 배열로 만들어 값 확인 가능
+        //System.out.println(arr[1]);             //getChannel의 1번 배열 출력 확인가능
+       // for(int i=0; i<arr.length; i++)
+         //   System.out.println(arr[i]);
     }
 }
 class Tv {
     //속성
     String model_name;
     int[] channel;          //배열(int형 배열)
-    int current_channel;
+    private int current_channel;
     int resolution;
     boolean power;
     //생성자
@@ -41,17 +50,27 @@ class Tv {
             channel[i] = i + 1;
             }
         }
+             //Getter Setter
+            public int[] getChannel() {
+                return channel;
+            }
 
+            public void setChannel(int[] channel) {
+                this.channel = channel;
+            }
 
-        //Getter Setterpublic int getCurrent_channel() {
-    //return current_channel;
-    //}
+            public int getCurrent_channel() {
+                return current_channel;
+            }
 
-    //public void setCurrent_channel(int current_channel) {
-      //  this.current_channel = current_channel;
-    //}
-
-
+            public void setCurrent_channel(int current_channel) {
+                if(current_channel > 100) {
+                    System.out.println("입력오류");
+                }
+                else {
+                    this.current_channel = current_channel;
+                }
+            }
 
         /*
         channel[0] = 1;  /for문을 통해 배열 값 자동 생성 가능
