@@ -7,12 +7,14 @@ class TvControll {
         Tv sTv = new Tv("Samsung");
         Tv hTv = new Tv("HP",2048);
 
-        //System.out.println(hTv.current_channel);
-        //hTv.current_channel=11;
-        //System.out.println(hTv.current_channel);
         System.out.println(hTv.getCurrent_channel());
         hTv.setCurrent_channel(11);
         System.out.println(hTv.getCurrent_channel());
+
+        //System.out.println(hTv.current_channel);
+        //hTv.current_channel=11;
+        //System.out.println(hTv.current_channel);
+
         //System.out.println(hTv.resolution);
         //System.out.println(hTv.getChannel());   //값이 아닌 배열의 시작 주소 출력
 
