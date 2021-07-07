@@ -1,4 +1,4 @@
-package com.practice._0706;
+package com.example.demo.lecture._0706.math;
 
 class Sum_For {
     public static void main(String[] args) {
