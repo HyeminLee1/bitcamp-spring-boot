@@ -8,4 +8,5 @@ public interface UtilService {
    LocalDate today();
    LocalTime currentTime();
    String todayAndCurrentTime();
+   String randomNumber(int digits, boolean allowZeroValue);
 }

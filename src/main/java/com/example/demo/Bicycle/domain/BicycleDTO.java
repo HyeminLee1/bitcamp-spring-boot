@@ -31,6 +31,6 @@ public class BicycleDTO {
 
     @Override
     public String toString() {
-        return String.format("Gear : %d\nCompany : %s\nSpeed : %f", gear, company, speed);
+        return String.format("Gear는  %d단 Company는 : %s Speed는 %f이다", gear, company, speed);
     }
 }

@@ -31,4 +31,14 @@ public class UtilServiceImpl implements UtilService {
     public String todayAndCurrentTime() {
         return String.format("%s %s",today(),currentTime());
     }
+
+    @Override
+    public String randomNumber(int digits, boolean allowZeroValue) {
+        String first = "",result = "";
+        first += allowZeroValue ? ((int) (Math.random() * 10)) : ((int) (Math.random() * 9 + 1));
+        for(int i=0; i<digits; i++){
+            result += (int) (Math.random() * 10);
+        }
+        return result;
+    }
 }

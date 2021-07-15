@@ -9,7 +9,15 @@ public class DogDTO {
     private String name;
     private String color;
     private String breed;
-    private String hungry;
+
+    @Override
+    public String toString() {
+        return String.format("이름은 %s이고, 색깔은 %s이고, 품종은 %s인 강아지가 ", name, color, breed);
+    }
+
+}
+    //private String hungry;
+
 /*
     public void setName(String name){
         this.name = name;
@@ -36,10 +44,5 @@ public class DogDTO {
         return hungry;
     }
 */
-    @Override
-    public String toString() {
-        return String.format("Name : %s\nColor : %s\nBreed : %s\nhungry : %s",name,color,breed,hungry);
-    }
-}
 
 
