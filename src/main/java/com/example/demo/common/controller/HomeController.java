@@ -26,18 +26,7 @@ public class HomeController {
                 case "0" : return;
                 case "1" : new CalculatorController().calculate(); break;
                 case "2" : new CalculatorController().sequence(); break;
-                case "3" :
-                    DogDTO dog = new DogDTO();
-                    DogService dogService = new DogServiceImpl();
-                    System.out.println("What's your name?");
-                    dog.setName(scanner.next());
-                    System.out.println("What's your color?");
-                    dog.setColor(scanner.next());
-                    System.out.println("What's your breed?");
-                    dog.setBreed(scanner.next());
-                    dogController.add(dog);
-                    break;
-                case "33" : dogController.show();break;
+                case "3" : dogController.main();
                 case "4" :
                     BicycleDTO bicycle = new BicycleDTO();
                     BicycleService bicycleService = new BicycleServiceImpl();
@@ -51,7 +40,9 @@ public class HomeController {
                 break;
                 case "44" : bicycleController.show(); break;
                 case "5" : new UtilController().todayAndCurrentTime();break;
-                case "6" : break;
+                case "6" :
+                    bankAccountController.main();
+                    break;
                     //case "66" :  bankAccountController.show(); break;
                         }
                     }

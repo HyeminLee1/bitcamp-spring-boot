@@ -8,7 +8,6 @@ import java.time.LocalTime;
 public class UtilServiceImpl implements UtilService {
    //생성자
     private UtilDTO util;
-    public final static UtilDTO util2 = new UtilDTO();
 
     // 10. util 초기화 방법
     public UtilServiceImpl(){

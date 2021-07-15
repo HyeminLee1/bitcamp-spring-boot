@@ -17,7 +17,7 @@ public interface BankAccountService {
 
      void add(BankAccountDTO bankAccount);
      String count();
-     List<?> findAll();
+     List<? extends BankAccountDTO> findAll();
      String[] findAllAccountNumber();
      void createAccount(BankAccountDTO bankAccount);
 

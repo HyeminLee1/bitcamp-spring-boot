@@ -6,11 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class DogServiceImpl implements DogService {
     private final DogDTO dog;             //클래스
     private final List<DogDTO> dogs; //컬렉션 클래스 - 제네릭 가짐
 
-    public DogServiceImpl(){
+    public DogServiceImpl() {
         dog = new DogDTO();
         dogs = new ArrayList<>();
     }
@@ -27,6 +28,7 @@ public class DogServiceImpl implements DogService {
 
     @Override
     public List<?> show() {
+        System.out.println("강아지 수:" + count());
         return dogs;
     }
 

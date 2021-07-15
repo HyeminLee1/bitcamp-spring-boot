@@ -9,5 +9,6 @@ public class LambdaUtils {
     public static Function<Object, String> string = String::valueOf; //Object 무엇이든지 다 받음
     public static Function<String, Integer> strToInt = Integer::parseInt;       //String으로 받아서 Int로 변환
 
+
 }
 

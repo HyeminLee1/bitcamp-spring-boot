@@ -3,41 +3,51 @@ package com.example.demo.Bank.controller;
 import com.example.demo.Bank.domain.BankAccountDTO;
 import com.example.demo.Bank.service.BankAccountService;
 import com.example.demo.Bank.service.BankAccountServiceImpl;
+import com.example.demo.util.service.LambdaUtils;
 
+import java.util.List;
 import java.util.Scanner;
 
-public class BankAccountController{
+public class BankAccountController extends LambdaUtils {
 
     private BankAccountService bankAccountService;
+
+    public BankAccountController(){
+        bankAccountService = new BankAccountServiceImpl();
+    }
 
     public void main(){
         Scanner scanner = new Scanner(System.in);
         BankAccountDTO bankAccount = null;      //재활용
         while(true) {
-            System.out.println("0.종료 1.계좌 생성 11.계좌 목록 2.잔액 확인 3.입금 4.출금 5.계좌 해지");
+            print.accept("0.종료 1.계좌 생성 2.계좌 목록 3.계좌번호 목록 4.잔액 확인 5.입금 6.출금 7.계좌 해지\n");
             switch (scanner.next()) {
                 case "0":
                     return;
                 case "1":
                     bankAccount = new BankAccountDTO();
-                    System.out.println("이름 : [    ]");
+                    print.accept("이름 : [    ]\n");
                     bankAccount.setAccountName(scanner.next());
                     bankAccountService.createAccount(bankAccount);
-                    System.out.printf("Account Name : %s\nAccount Number %s\n", bankAccount.getAccountName(), bankAccount.getAccountNumber());
+                    print.accept(String.format("Account Name : %s\nAccount Number %s\n", bankAccount.getAccountName(), bankAccount.getAccountNumber()));
                     break;
-                case "11":
-                    bankAccount = new BankAccountDTO();
                 case "2":
-                    bankAccount = new BankAccountDTO();
-                    bankAccountService.findBalance(bankAccount);
-                    System.out.println(bankAccountService.findBalance(bankAccount));
-                    break;
+                    print.accept("개설된 계좌 수 :"+bankAccountService.count()+"\n");
+                    List<? extends BankAccountDTO> list = bankAccountService.findAll();
+                    for(BankAccountDTO bank : list){
+                        print.accept(bank.toString()+"\n");
+                    }
                 case "3":
+                    for(String s : bankAccountService.findAllAccountNumber()){          //find는 제네릭,findallaccount는 배열이라 코딩이 다름
+                        print.accept(s + "\n");
+                    }
+                    break;
+                case "4":
                     bankAccount = new BankAccountDTO();
                     bankAccount.setMoney(scanner.next());
                     System.out.println(bankAccountService.deposit(bankAccount));
                     break;
-                case "4":
+                case "5":
                     System.out.println("계좌번호 : [   ]");
                     bankAccount = new BankAccountDTO();
                     bankAccount.setAccountNumber(scanner.next());
@@ -45,7 +55,7 @@ public class BankAccountController{
                     bankAccount.setMoney(scanner.next());
                     System.out.println(bankAccountService.withdraw(bankAccount));
                     break;
-                case "5":
+                case "6":
                     bankAccount = new BankAccountDTO();
                     bankAccountService.dropAccount(bankAccount);
                     break;
@@ -55,38 +65,6 @@ public class BankAccountController{
         }
     }
 
-
-
-    public BankAccountController(){
-        bankAccountService = new BankAccountServiceImpl();
-    }
-
-    public void add(BankAccountDTO bankAccount) {
-        bankAccountService.add(bankAccount);
-    }
-
-    public int count() {
-        return bankAccountService.count();
-    }
-
-
-    public void createAccount(BankAccountDTO bankAccount) { }
-
-    public int findBalance(BankAccountDTO bankAccount) {
-        return 0;
-    }
-
-    public int deposit(BankAccountDTO bankAccount) {
-        return 0;
-    }
-
-    public int withdraw(BankAccountDTO bankAccount) {
-        return 0;
-    }
-
-    public void dropAccount(BankAccountDTO bankAccount) {
-
-    }
 }
 
         /*
