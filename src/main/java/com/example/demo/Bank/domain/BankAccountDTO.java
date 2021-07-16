@@ -14,11 +14,11 @@ public class BankAccountDTO {
 
     @Override
     public String toString() {
-        return BANK_NAME + ":"
-                + "예금주 : " + accountName
-                + "계좌번호 : " + accountNumber
-                + "잔액 : " + balance
-                + "거래 일자 : " + date
+        return BANK_NAME + "\t"
+                + "예금주 : " + accountName + "\t"
+                + "계좌번호 : " + accountNumber + "\t"
+                + "잔액 : " + balance + "\t"
+                + "거래 일자 : " + date + "\t"
                 + "이자율 : " + interest;
     }
 

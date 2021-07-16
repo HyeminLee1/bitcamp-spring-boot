@@ -26,7 +26,7 @@ public class BankAccountController extends LambdaUtils {
                     return;
                 case "1":
                     bankAccount = new BankAccountDTO();
-                    print.accept("이름 : [    ]\n");
+                    print.accept("이름 : ");
                     bankAccount.setAccountName(scanner.next());
                     bankAccountService.createAccount(bankAccount);
                     print.accept(String.format("Account Name : %s\nAccount Number %s\n", bankAccount.getAccountName(), bankAccount.getAccountNumber()));
@@ -37,23 +37,27 @@ public class BankAccountController extends LambdaUtils {
                     for(BankAccountDTO bank : list){
                         print.accept(bank.toString()+"\n");
                     }
+                    break;
                 case "3":
                     for(String s : bankAccountService.findAllAccountNumber()){          //find는 제네릭,findallaccount는 배열이라 코딩이 다름
                         print.accept(s + "\n");
                     }
                     break;
                 case "4":
-                    bankAccount = new BankAccountDTO();
-                    bankAccount.setMoney(scanner.next());
-                    System.out.println(bankAccountService.deposit(bankAccount));
-                    break;
-                case "5":
-                    System.out.println("계좌번호 : [   ]");
+                    print.accept("계좌번호");
                     bankAccount = new BankAccountDTO();
                     bankAccount.setAccountNumber(scanner.next());
-                    System.out.println("입금액 : [    ]");
+                   // print.accept(bankAccountService.findBalance());
+                   // bankAccount = bankAccountService.deposit( );
+                   // print.accept(bankAccountService.deposit());
+                    break;
+                case "5":
+                    print.accept("계좌번호 : ");
+                    bankAccount = new BankAccountDTO();
+                    bankAccount.setAccountNumber(scanner.next());
+                    print.accept("입금액 : ");
                     bankAccount.setMoney(scanner.next());
-                    System.out.println(bankAccountService.withdraw(bankAccount));
+                    //print.accept();
                     break;
                 case "6":
                     bankAccount = new BankAccountDTO();

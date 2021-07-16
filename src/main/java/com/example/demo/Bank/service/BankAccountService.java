@@ -20,10 +20,10 @@ public interface BankAccountService {
      List<? extends BankAccountDTO> findAll();
      String[] findAllAccountNumber();
      void createAccount(BankAccountDTO bankAccount);
-
-     String findBalance(BankAccountDTO bankAccount);
-     String deposit(BankAccountDTO bankAccount);
-     String withdraw(BankAccountDTO bankAccount);
+     void findBalance(BankAccountDTO bankAccount);
+     void deposit(BankAccountDTO bankAccount);
+     void withdraw(BankAccountDTO bankAccount);
      void dropAccount(BankAccountDTO bankAccount);
+     BankAccountDTO findMyAccountByAccountNumber(String accountNumber);
 
 }

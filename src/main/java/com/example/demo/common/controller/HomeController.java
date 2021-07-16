@@ -10,6 +10,7 @@ import com.example.demo.Dog.Service.DogServiceImpl;
 import com.example.demo.Dog.domain.DogDTO;
 import com.example.demo.calculator.controller.CalculatorController;
 import com.example.demo.Dog.controller.DogController;
+import com.example.demo.himart.controller.HimartController;
 import com.example.demo.util.controller.UtilController;
 
 import java.util.Scanner;
@@ -20,8 +21,9 @@ public class HomeController {
         DogController dogController = new DogController();
         BicycleController bicycleController = new BicycleController();
         BankAccountController bankAccountController = new BankAccountController();
+        HimartController himartController = new HimartController();
         while(true){
-            System.out.println("\n0.Exit 1.Calculator 2.Sequence 3.Add Dog 33.Show Dog 4.Bicycle 44.show Bicycle 5.오늘날짜 6.계좌 66.계좌 확인");
+            System.out.println("\n0.Exit 1.Calculator 2.Sequence 3.Add Dog 33.Show Dog 4.Bicycle 44.show Bicycle 5.계좌 66.계좌 확인");
             switch (scanner.next()){
                 case "0" : return;
                 case "1" : new CalculatorController().calculate(); break;
@@ -39,11 +41,12 @@ public class HomeController {
                     bicycleController.add(bicycle);
                 break;
                 case "44" : bicycleController.show(); break;
-                case "5" : new UtilController().todayAndCurrentTime();break;
-                case "6" :
+                case "5" :
                     bankAccountController.main();
                     break;
-                    //case "66" :  bankAccountController.show(); break;
+                case "6" :
+                    himartController.main();
+                    break;
                         }
                     }
 
